@@ -1,6 +1,10 @@
 function App() {
   return (
-      <div></div>
+    <div className="wrapper">
+      <div className="grid place-items-center h-screen">
+        <div className="rounded-box-white">Test</div>
+      </div>
+    </div>
   );
 }
 
