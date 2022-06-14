@@ -1,10 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Special */
+    --background: #794DFD;
+    --foreground: #ffffff;
+
+    /* Colors */
+    --color0: #5735BD;
+    --color1: #35B164;
+    --color2: #54C981;
+    --color3: #307FE2;
+    --color4: #D93535;
+    --phoneWidth: (max-width:684px);
+    --tabletWidth: (max-width:900px);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Comic Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.header-wrapper {
+  width: 100%;
+  height: 94px;
+  padding: 15px 20px;
+  background-color: var(--color0);
+}
+
+header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.header-item {
+}
+
+.header-logo {
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 64px;
+  color: var(--foreground);
+}
+
+.header-user-btn {
+  background-color: var(--color1);
+}
+
+.rounded-box {
+  width: 100%;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  background-color: var(--color0);
+}
+
+.rounded-box-white {
+  width: 500px;
+  height: 300px;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 30px;
+  padding: 1em;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  background-color: white;
 }
 
 code {
