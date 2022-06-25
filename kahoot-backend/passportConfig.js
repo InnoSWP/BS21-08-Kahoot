@@ -1,5 +1,7 @@
 const express = require("express");
-const LocalStrategy = require("passport-local");
+const LocalStrategy = require("passport-local").Strategy;
+const JwtStrategy = require("passport-jwt").Strategy;
+const { ExtractJwt } = require("passport-jwt");
 const User = require("./models/userModel");
 
 module.exports = (passport) => {
@@ -10,9 +12,11 @@ module.exports = (passport) => {
       {
         usernameField: "email",
         passwordField: "password",
+        passReqToCallback: true,
       },
-      async (email, password, done) => {
+      async (req, email, password, done) => {
         try {
+          const name = req.body.name;
           // the user exists
           const userExists = await User.findOne({ email: email });
           if (userExists) {
@@ -20,7 +24,7 @@ module.exports = (passport) => {
           }
 
           // create a new user
-          const user = await User.create({ email, password });
+          const user = await User.create({ name, email, password });
           return done(null, user);
         } catch (error) {
           done(error);
@@ -29,7 +33,7 @@ module.exports = (passport) => {
     )
   );
   passport.use(
-    "local-login",
+    "local-signin",
     new LocalStrategy(
       {
         usernameField: "email",
@@ -50,4 +54,14 @@ module.exports = (passport) => {
       }
     )
   );
+
+  passport.serializeUser((user, done) => {
+    done(null, user._id);
+  });
+
+  passport.deserializeUser((id, done) => {
+    User.findById(id, (err, user) => {
+      done(err, user);
+    });
+  });
 };
