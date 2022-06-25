@@ -1,9 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
-function DropDownMenu({ content }) {
+function DropDownMenu({ content, menuItems }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -21,17 +20,9 @@ function DropDownMenu({ content }) {
       >
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {/* TODO: use Array instead */}
-            <Menu.Item>
-              <div className="dropdown-menu-item">
-                <Link to="/signin">Sign In</Link>
-              </div>
-            </Menu.Item>
-            <Menu.Item>
-              <div className="dropdown-menu-item">
-                <Link to="/signup">Sign Up</Link>
-              </div>
-            </Menu.Item>
+            {menuItems.map(({ id, content }) => (
+              <Menu.Item key={id}>{content}</Menu.Item>
+            ))}
           </div>
         </Menu.Items>
       </Transition>

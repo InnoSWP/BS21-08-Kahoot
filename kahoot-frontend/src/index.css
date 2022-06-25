@@ -92,7 +92,7 @@ header {
   text-align: center;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   @apply rounded-xl;
   width: 100%;
   font-size: 2em;
