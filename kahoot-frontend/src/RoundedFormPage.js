@@ -1,4 +1,6 @@
-function RoundedFormPage({ text }) {
+import PropTypes from 'prop-types'
+
+function RoundedFormPage ({ text }) {
   return (
     <div className="wrapper">
       <div className="grid place-items-center h-screen">
@@ -7,7 +9,10 @@ function RoundedFormPage({ text }) {
         </div>
       </div>
     </div>
-  );
+  )
+}
+RoundedFormPage.propTypes = {
+  text: PropTypes.string.isRequired
 }
 
-export default RoundedFormPage;
+export default RoundedFormPage

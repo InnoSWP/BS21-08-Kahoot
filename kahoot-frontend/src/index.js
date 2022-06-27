@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./index.css";
-import Navbar from "./Navbar";
-import Home from "./Home";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './index.css'
+import Navbar from './Navbar'
+import Home from './Home'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
 
-export default function App() {
+export default function App () {
   return (
     <>
       <BrowserRouter>
@@ -19,8 +19,8 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(<App />)

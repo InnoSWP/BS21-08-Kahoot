@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import DropDownMenu from "./DropDownMenu";
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import DropDownMenu from './DropDownMenu'
 
-function Navbar() {
-  const [username, setUsername] = useState([]);
+function Navbar () {
+  const [username, setUsername] = useState([])
 
   useEffect(() => {
-    fetch(`/api/v1/getUser`, { credentials: "include", method: "POST" })
+    fetch('/api/v1/getUser', { credentials: 'include', method: 'POST' })
       .then((res) => res.json())
       .then((data) => {
-        setUsername(data.name);
-        console.log(data);
+        setUsername(data.name)
+        console.log(data)
       })
       .catch((err) => {
-        setUsername(null);
-        console.log(err.message);
-      });
-  }, []);
+        setUsername(null)
+        console.log(err.message)
+      })
+  }, [])
 
   const userBtn = {
     btn: (
@@ -36,57 +36,57 @@ function Navbar() {
           />
         </svg>
       </div>
-    ),
-  };
+    )
+  }
 
-  const menuItems = [];
+  const menuItems = []
 
   if (username) {
     menuItems.push(
       {
         id: 1,
-        content: (
+        itemContent: (
           <Link to="/preferences" className="dropdown-menu-item">
             <span>{username}</span>
           </Link>
-        ),
+        )
       },
       {
         id: 2,
-        content: (
+        itemContent: (
           <Link to="/create" className="dropdown-menu-item">
             <span>Create quiz</span>
           </Link>
-        ),
+        )
       },
       {
         id: 3,
-        content: (
+        itemContent: (
           <Link to="/logout" className="dropdown-menu-item">
             <span>Log Out</span>
           </Link>
-        ),
+        )
       }
-    );
+    )
   } else {
     menuItems.push(
       {
         id: 1,
-        content: (
+        itemContent: (
           <Link to="/signin" className="dropdown-menu-item">
             <span>Sign In</span>
           </Link>
-        ),
+        )
       },
       {
         id: 2,
-        content: (
+        itemContent: (
           <Link to="/signup" className="dropdown-menu-item">
             <span>Sign Up</span>
           </Link>
-        ),
+        )
       }
-    );
+    )
   }
 
   return (
@@ -98,11 +98,11 @@ function Navbar() {
           </div>
         </div>
         <div className="header-item">
-          <DropDownMenu content={userBtn} menuItems={menuItems} />
+          <DropDownMenu itemContent={userBtn} menuItems={menuItems} />
         </div>
       </header>
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
