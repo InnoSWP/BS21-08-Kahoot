@@ -1,6 +1,6 @@
-import RoundedFormPage from "./RoundedFormPage";
+import RoundedFormPage from './RoundedFormPage'
 
-function SignIn() {
+function SignIn () {
   const SignInForm = (
     <form action="/api/v1/signin" method="post">
       <div>
@@ -25,9 +25,9 @@ function SignIn() {
         <input type="submit" className="btn btn-black w-full" value="Enter" />
       </div>
     </form>
-  );
+  )
 
-  return <RoundedFormPage text={SignInForm} />;
+  return <RoundedFormPage text={SignInForm} />
 }
 
-export default SignIn;
+export default SignIn

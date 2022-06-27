@@ -1,11 +1,11 @@
-import Join from "./Join";
+import Join from './Join'
 
-function Home() {
+function Home () {
   return (
       <>
         <Join />
       </>
-  );
+  )
 }
 
-export default Home;
+export default Home

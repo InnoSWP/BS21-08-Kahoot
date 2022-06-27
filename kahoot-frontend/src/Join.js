@@ -1,6 +1,6 @@
-import RoundedFormPage from "./RoundedFormPage";
+import RoundedFormPage from './RoundedFormPage'
 
-function Join() {
+function Join () {
   const JoinForm = (
     <form action="/play" method="post">
       <div>
@@ -10,9 +10,9 @@ function Join() {
         <input type="submit" className="btn btn-black w-full" value="Enter" />
       </div>
     </form>
-  );
+  )
 
-  return <RoundedFormPage text={JoinForm} />;
+  return <RoundedFormPage text={JoinForm} />
 }
 
-export default Join;
+export default Join
