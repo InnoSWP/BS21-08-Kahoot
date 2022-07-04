@@ -32,11 +32,13 @@ function DropDownMenu ({ content, menuItems }) {
   )
 }
 DropDownMenu.propTypes = {
-  content: PropTypes.test.isRequired,
-  menuItems: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    itemContent: PropTypes.string.isRequired
-  }))
+  content: PropTypes.any,
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      itemContent: PropTypes.any.isRequired
+    })
+  )
 }
 
 export default DropDownMenu
