@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import DropDownMenu from './DropDownMenu'
 
 function Navbar () {
   const [username, setUsername] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/api/v1/getUser', { credentials: 'include', method: 'POST' })
@@ -54,17 +55,33 @@ function Navbar () {
       {
         id: 2,
         itemContent: (
-          <Link to="/create" className="dropdown-menu-item">
-            <span>Create quiz</span>
+          <Link to="/myQuizzes" className="dropdown-menu-item">
+            <span>My Quizzes</span>
           </Link>
         )
       },
       {
         id: 3,
         itemContent: (
-          <Link to="/logout" className="dropdown-menu-item">
+          <a onClick={() => {
+            fetch('/api/v1/logout', {
+              method: 'POST',
+              credentials: 'include'
+            }).then((res) => {
+              console.log(res.status)
+              if (res.status !== 200) {
+                console.log('Error: ' + res.status)
+                return
+              }
+
+              navigate('/', { replace: true })
+              window.location.reload(false)
+            }).catch((err) => {
+              console.log(err)
+            })
+          }} className="dropdown-menu-item cursor-pointer">
             <span>Log Out</span>
-          </Link>
+          </a>
         )
       }
     )
@@ -90,18 +107,18 @@ function Navbar () {
   }
 
   return (
-    <div className="header-wrapper">
-      <header>
+    <header>
+    <div className="header-wrapper flex flex-nowrap justify-between">
         <div className="header-item">
           <div className="header-logo">
             <Link to="/">Kahoot</Link>
           </div>
         </div>
         <div className="header-item">
-          <DropDownMenu itemContent={userBtn} menuItems={menuItems} />
+          <DropDownMenu content={userBtn} menuItems={menuItems} />
         </div>
-      </header>
     </div>
+    </header>
   )
 }
 

@@ -1,18 +1,14 @@
 import PropTypes from 'prop-types'
 
-function RoundedFormPage ({ text }) {
+function RoundedFormPage ({ children }) {
   return (
-    <div className="wrapper">
-      <div className="grid place-items-center h-screen">
-        <div className="rounded-box-white">
-          <div className="box-inner">{text}</div>
-        </div>
-      </div>
+    <div className="rounded-box-white">
+      <div className="box-inner">{children}</div>
     </div>
   )
 }
 RoundedFormPage.propTypes = {
-  text: PropTypes.string.isRequired
+  children: PropTypes.any
 }
 
 export default RoundedFormPage

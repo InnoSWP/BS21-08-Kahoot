@@ -3,48 +3,54 @@
 @tailwind utilities;
 
 :root {
-    /* Special */
-    --background: #794DFD;
-    --foreground: #ffffff;
+  /* Special */
+  --background: #794dfd;
+  --foreground: #ffffff;
 
-    /* Colors */
-    --color0: #5735BD;
-    --color1: #35B164;
-    --color2: #54C981;
-    --color3: #307FE2;
-    --color4: #D93535;
-    --color2: #298d4f;
-    --phoneWidth: (max-width:684px);
-    --tabletWidth: (max-width:900px);
+  /* Colors */
+  --color0: #5735bd;
+  --color1: #35b164;
+  --color2: #54c981;
+  --color3: #307fe2;
+  --color4: #d93535;
+  --color5: #298d4f;
+  --color-red: #ff564d;
+  --color-red-hover: #ff0000;
+  --color-blue: #388ee5;
+  --color-blue-hover: #006edd;
+  --color-yellow: #f9f23d;
+  --color-yellow-hover: #edd202;
+  --color-green: #3cbc6d;
+  --color-green-hover: #00b815;
+  --phoneWidth: (max-width: 684px);
+  --tabletWidth: (max-width: 900px);
 }
 
 body {
   margin: 0;
-  font-family: 'Comic Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Comic Neue", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
 }
 
 .wrapper {
+  min-height: 100vh;
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1em;
 }
 
 .header-wrapper {
-  width: 100%;
-  height: 94px;
-  padding: 15px 20px;
-  background-color: var(--color0);
 }
 
 header {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  background-color: var(--color0);
+  width: 100%;
+  height: 94px;
+  padding: 15px 20px;
 }
 
 .header-item {
@@ -62,7 +68,11 @@ header {
 }
 
 .header-user-btn:hover {
-    background-color: var(--color2);
+  background-color: var(--color2);
+}
+
+footer {
+  background-color: var(--color0);
 }
 
 .rounded-box {
@@ -74,8 +84,9 @@ header {
 }
 
 .rounded-box-white {
-  width: 500px;
-  min-height: 300px;
+  max-width: 450px;
+  width: 100%;
+  min-height: 200px;
   border-color: black;
   border-width: 2px;
   border-radius: 30px;
@@ -85,29 +96,138 @@ header {
 }
 
 .box-inner {
-  width: 400px;
-  min-width: 50%;
+  max-width: 450px;
+  width: 100%;
   margin: auto;
-  padding: 70px 30px;
+  padding: 50px 30px;
   text-align: center;
 }
 
-input[type=text], input[type=password] {
-  @apply rounded-xl;
+.input-general {
+  border-radius: 20px;
   width: 100%;
   font-size: 2em;
   text-align: center;
   border: 1px solid gray;
 }
 
+.input-transparent {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  caret-color: var(--color0);
+}
+
+.input-transparent::placeholder {
+  color: white;
+}
+
 .btn {
-  @apply font-bold py-2 px-4 rounded-xl;
-  font-size: 2em;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.btn-slim {
+  border-radius: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 1.75rem;
+  height: fit-content;
+}
+
+.btn-huge {
+  border-radius: 0.75rem;
+  font-weight: bold;
+  padding: 0.5rem 3rem;
+}
+
+.color-black {
+  background-color: black;
+}
+
+.color-white {
+  background-color: white;
+}
+
+.color-white-hover:hover {
+  background-color: lightgray;
+}
+
+.color-blue {
+  background-color: var(--color-blue);
+}
+
+.color-red {
+  background-color: var(--color-red);
+}
+
+.color-yellow {
+  background-color: var(--color-yellow);
+}
+
+.color-green {
+  background-color: var(--color-green);
+}
+
+.color-blue-hover:hover {
+  background-color: var(--color-blue-hover);
+}
+
+.color-red-hover:hover {
+  background-color: var(--color-red-hover);
+}
+
+.color-yellow-hover:hover {
+  background-color: var(--color-yellow-hover);
+}
+
+.color-green-hover:hover {
+  background-color: var(--color-green-hover);
+}
+
+.color-correct {
+  background-color: var(--color-green-hover);
+}
+
+.color-incorrect {
+  background-color: red;
 }
 
 .btn-black {
   background-color: black;
+  font-size: 2rem;
   color: white;
+}
+
+.btn-blue {
+  background-color: var(--color-blue);
+  font-size: 1.5rem;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: var(--color-blue-hover);
+}
+
+.btn-red {
+  background-color: var(--color-red);
+  font-size: 1.5rem;
+  color: white;
+}
+
+.btn-red:hover {
+  background-color: var(--color-red-hover);
+}
+
+.btn-green {
+  background-color: var(--color-green);
+  font-size: 1.5rem;
+  color: white;
+}
+
+.btn-green:hover {
+  background-color: var(--color-green-hover);
 }
 
 .dropdown-menu-item {
@@ -122,6 +242,90 @@ input[type=text], input[type=password] {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.stroke {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.question-title {
+  font-size: 3rem;
+}
+
+.image-frame {
+  margin: 0 auto;
+  max-width: 533px;
+  max-height: 250px;
+}
+
+img {
+  width: auto;
+  height: 250px;
+  margin: 0 auto;
+}
+
+.answer-options-container {
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: .625em;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  text-align: center;
+}
+
+.answer-option {
+  border-radius: .25em;
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  padding: 0.6em 0;
+}
+
+.player-list-item {
+  font-size: 2rem;
+}
+
+.card {
+  background-color: var(--color0);
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 600px;
+  min-height: 150px;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+.phantom {
+  height: 50vh;
+}
+
+.quiz-name {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 350px;
+}
+
+.question-form-input {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+.question-form-input-small {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 250px;
 }
